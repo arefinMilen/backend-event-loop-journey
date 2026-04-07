@@ -4,16 +4,13 @@ const resultHandler = (req, res) => {
   console.log("Calculating result...",req.url);
   const body = [];
   req.on("data", chunk => {
-    console.log("Received chunk:", chunk);
    body.push(chunk);
   });
   req.on("end", () => {
     const parseBody = Buffer.concat(body).toString();
-    console.log(parseBody);
     const params = new URLSearchParams(parseBody);
     const bodyObject = Object.fromEntries(params);
-    console.log(bodyObject);
-    
+  
     const num1 = parseFloat(bodyObject.num1);
     const num2 = parseFloat(bodyObject.num2);
     const operation = bodyObject.operation;
