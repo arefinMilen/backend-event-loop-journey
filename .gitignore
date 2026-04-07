@@ -1,0 +1,11 @@
+# ignore all node modules
+/node_modules/
+
+# optional logs
+npm-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# if you need to keep one package, unignore it explicitly:
+!node_modules/some-package/
+!node_modules/some-package/**
