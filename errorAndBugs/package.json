@@ -1,0 +1,13 @@
+{
+  "name": "errorandbugs",
+  "version": "1.0.0",
+  "description": "this session is for understand how to handle error and bugs ",
+  "license": "ISC",
+  "author": "samsul arefin",
+  "type": "commonjs",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
+  }
+}
