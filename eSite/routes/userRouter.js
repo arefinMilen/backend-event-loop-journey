@@ -1,11 +1,14 @@
+//core mdule
+const path = require("path");
+
+//external modules
 const express = require("express");
 const userRouter = express.Router();
+const rootDir = require("../utils/pathUtil");
 
 userRouter.get("/",(req, res,next) => {
   console.log("first middleware", req.url, req.method);
-  res.send(`<h1>Welcome to my Express server</h1>
-    <a href="/host/add-home">Add Home</a>
-    `);
+  res.sendFile(path.join(rootDir, "views", "user.html"));
 })
 
 module.exports = userRouter;
