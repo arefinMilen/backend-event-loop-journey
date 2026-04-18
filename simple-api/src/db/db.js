@@ -6,7 +6,3 @@ const connectDB = async () => {
 }
 
 module.exports = connectDB
-// password
-// ajzdtwGLaOMePQwZ
-
-// username: arefin155279_db_user
