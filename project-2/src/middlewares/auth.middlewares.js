@@ -21,4 +21,25 @@ const authArtist = async(req,res,next)=>{
   }
 }
 
-module.exports = {authArtist}
+const authUser = async(req,res,next)=>{
+  const token = req.cookies.token;
+  if(!token){
+    res.status(401).json({message:"unauthorized"});
+  }
+    try{
+      const decoded = jwt.verify(token, process.env.JWT_SECRET)
+      if(decoded.role!=="user"){
+        return res.status(403).json({message:"user is not valid for this response"})
+      }
+
+      req.user = decoded
+      next()
+
+    }catch(err){
+      console.log(err)
+      res.status(401).json({message:"unauthorized"});
+    }
+  
+}
+
+module.exports = {authArtist, authUser}
